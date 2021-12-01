@@ -37,5 +37,12 @@ public class Ex33 {
         for (double[] ds : transposedMatrix) {
             StdOut.println(Arrays.toString(ds));
         }
+
+        // test the mult
+        double[][] mult_a = new double[2][];
+        mult_a[0] = new double[] { 1, 2 };
+        mult_a[1] = new double[] { 3, 4 };
+        double[] mult_b = new double[] { 1, 2 };
+        StdOut.println(Arrays.toString(Matrix.mult(mult_a, mult_b)));
     }
 }
