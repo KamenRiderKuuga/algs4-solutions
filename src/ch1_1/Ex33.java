@@ -44,5 +44,8 @@ public class Ex33 {
         mult_a[1] = new double[] { 3, 4 };
         double[] mult_b = new double[] { 1, 2 };
         StdOut.println(Arrays.toString(Matrix.mult(mult_a, mult_b)));
+
+        // test the mult
+        StdOut.println(Arrays.toString(Matrix.mult(mult_b, mult_a)));
     }
 }

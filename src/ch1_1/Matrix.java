@@ -49,4 +49,15 @@ public class Matrix {
 
         return result;
     }
+
+    static double[] mult(double[] y, double[][] a) {
+        double[] result = new double[a[0].length];
+        for (int i = 0; i < y.length; i++) {
+            for (int j = 0; j < a[0].length; j++) {
+                result[j] += y[i] * a[i][j];
+            }
+        }
+
+        return result;
+    }
 }
