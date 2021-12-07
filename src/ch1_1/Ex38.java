@@ -3,14 +3,17 @@ package ch1_1;
 import java.util.Arrays;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
 
 public class Ex38 {
     public static void main(String[] args) {
+        // get the test file with
+        // curl https://algs4.cs.princeton.edu/11model/largeAllowlist.txt > largeW.txt
+        // curl https://algs4.cs.princeton.edu/11model/largeText.txt > largeT.txt
         int[] whilelist = new In(args[0]).readAllInts();
-        int[] allInts = StdIn.readAllInts();
+        int[] allInts = new In(args[1]).readAllInts();
+        // int[] allInts = StdIn.readAllInts();
         StdOut.println("All input is read, start testing");
 
         Stopwatch timer1 = new Stopwatch();
@@ -21,7 +24,7 @@ public class Ex38 {
             }
         }
         StdOut.printf(
-                "totol time spent when using BruteForceSearch %.3f, %d result(s) are found that do not exist in the whitelist",
+                "total time spent when using BruteForceSearch: %.3fs, %d result(s) are found that do not exist in the whitelist%n",
                 timer1.elapsedTime(), result1);
 
         Stopwatch timer2 = new Stopwatch();
@@ -33,7 +36,7 @@ public class Ex38 {
             }
         }
         StdOut.printf(
-                "totol time spent when using BinarySearch %.3f, %d result(s) are found that do not exist in the whitelist",
+                "total time spent when using BinarySearch: %.3fs, %d result(s) are found that do not exist in the whitelist%n",
                 timer2.elapsedTime(), result2);
     }
 
