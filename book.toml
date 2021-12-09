@@ -3,3 +3,6 @@ authors = []
 language = "zh-CN"
 multilingual = false
 src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/KamenRiderKuuga/algs4-solutions"
