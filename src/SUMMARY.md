@@ -10,3 +10,5 @@
         - [给出程序的输出结果](articles/chapter_1_1_6.md)
         - [给出程序的输出结果](articles/chapter_1_1_7.md)
         - [给出程序的输出结果](articles/chapter_1_1_8.md)
+        - [正整数N的二进制表示](articles/chapter_1_1_9.md)
+        - [给出代码中存在的问题](articles/chapter_1_1_10.md)
