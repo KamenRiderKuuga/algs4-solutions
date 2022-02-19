@@ -1,6 +1,6 @@
 package ch1_2;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -55,27 +55,36 @@ public class Ex01 {
         double rightClosest = closestDistance(points, middle + 1, right);
         double closest = Math.min(leftClosest, rightClosest);
 
-        // get the left and the right of the middle range
-        int middleLeft = Integer.MAX_VALUE;
-        int middleRight = 0;
-        for (int i = middle; i > left; i--) {
+        // get the middle strip
+        ArrayList<Point2D> middleStrip = new ArrayList<Point2D>();
+        for (int i = middle; i >= left; i--) {
             if (points[middle].x() - points[i].x() >= closest) {
                 break;
             }
-            middleLeft = i;
+            middleStrip.add(points[i]);
         }
 
-        for (int i = middle; i < right; i++) {
-            if (points[right].x() - points[middle].x() >= closest) {
+        for (int i = middle + 1; i <= right; i++) {
+            if (points[i].x() - points[middle].x() >= closest) {
                 break;
             }
-            middleRight = i;
+            middleStrip.add(points[i]);
         }
 
-        if (middleRight - middleLeft > 0) {
-            closest = Math.min(closest, closestDistance(points, middleLeft, middleRight));
-        }
+        middleStrip.sort(Point2D.Y_ORDER);
+        return Math.min(closest, closestInStrip(closest, middleStrip));
+    }
 
+    public static double closestInStrip(double closest, ArrayList<Point2D> middleStrip) {
+        int j = 0;
+        int size = middleStrip.size();
+        for (int i = 0; i < size; i++) {
+            j = i + 1;
+            while (j < size && middleStrip.get(j).y() - middleStrip.get(i).y() < closest) {
+                closest = Math.min(closest, middleStrip.get(i).distanceTo(middleStrip.get(j)));
+                j++;
+            }
+        }
         return closest;
     }
 }
